@@ -18,7 +18,12 @@ def contatos():
 
 @app.route("/usuarios/<nome_usuario>")
 def usuarios(nome_usuario):
-    return render_template("usuario.html", nome_usuario=nome_usuario)
+    return render_template("usuarios.html", nome_usuario=nome_usuario)
+
+
+@app.route("/medicacao/<nome_medicacao>")
+def medicacao(nome_medicacao):
+    return render_template("medicacao.html", nome_medicacao=nome_medicacao)
 
 
 if __name__=="__main__":
