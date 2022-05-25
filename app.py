@@ -1,14 +1,19 @@
 import flask
-import os
-
-from flask import Flask, render_template
+import os, bs4
+from bs4 import BeautifulSoup
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
+url = 'https://www.google.com/webhp?hl=pt-BR&sa=X&ved=0ahUKEwjKtIiHt_v3AhXNFbkGHa7XAm8QPAgI'
 
-
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def homepage():
-    return render_template("homepage.html")
+    remedio = ""
+    if request.method == "GET":
+        return render_template("homepage.html")
+    else:
+        numero = 0
+
 
 
 @app.route("/contatos")
